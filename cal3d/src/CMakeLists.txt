@@ -1,6 +1,4 @@
-PROJECT(cal3d)
-
-SET(PROJECT_INCLUDES
+SET(CAL3D_HEADERS
 cal3d/animation_action.h  cal3d/cal3d.h              cal3d/corekeyframe.h       cal3d/coreskeleton.h        cal3d/error.h          cal3d/mixer.h        
 cal3d/quaternion.h  cal3d/skeleton.h      cal3d/transform.h
 cal3d/animation_cycle.h   cal3d/cal3d_wrapper.h      cal3d/corematerial.h       cal3d/coresubmesh.h         cal3d/global.h         cal3d/model.h                   
@@ -14,11 +12,8 @@ cal3d/resource.h    cal3d/tinybind.h
 cal3d/buffersource.h      cal3d/corebone.h           cal3d/coremorphtrack.h     cal3d/dualquaternion.h      cal3d/mesh.h           cal3d/platform.h                
 cal3d/saver.h      cal3d/tinyxml.h
 )
- 
 
-INCLUDE_DIRECTORIES( ${CMAKE_CURRENT_BINARY_DIR}    "./")
-
-SET(PROJECT_SOURCES
+SET(CAL3D_SRCS
 #is it usefull	cal3d/calxmlbindings.cpp    
 cal3d/animation_action.cpp 
 cal3d/coremesh.cpp
@@ -36,13 +31,38 @@ cal3d/cal3d_wrapper.cpp     cal3d/corematerial.cpp       cal3d/coresubmesh.cpp  
 cal3d/morphtargetmixer.cpp  cal3d/saver.cpp                   cal3d/tinyxml.cpp
 )
 
-
-ADD_DEFINITIONS(-DCAL3D_EXPORTS)
-ADD_LIBRARY(cal3d  SHARED 
-${PROJECT_SOURCES} 
-${PROJECT_INCLUDES}
+add_library(cal3d  SHARED 
+${CAL3D_SRCS} 
+${CAL3D_HEADERS}
 )
-TARGET_LINK_LIBRARIES(cal3d )
-SET_TARGET_PROPERTIES(cal3d PROPERTIES PROJECT_LABEL "Cal3d Library" )
 
-INSTALL(TARGETS cal3d  DESTINATION bin)
+# Set properties
+target_include_directories(cal3d
+    PUBLIC 
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+        $<INSTALL_INTERFACE:include/cal3d>
+)
+
+if(WIN32)
+    target_compile_definitions(cal3d 
+        PRIVATE CAL3D_EXPORTS
+    )
+endif()
+
+# Installation rules
+install(TARGETS cal3d
+    EXPORT cal3d-targets
+    RUNTIME DESTINATION bin
+    LIBRARY DESTINATION lib
+    ARCHIVE DESTINATION lib
+)
+
+install(FILES ${CAL3D_HEADERS}
+    DESTINATION include/cal3d
+)
+
+install(EXPORT cal3d-targets
+    FILE cal3d-targets.cmake
+    NAMESPACE cal3d::
+    DESTINATION lib/cmake/cal3d
+)
