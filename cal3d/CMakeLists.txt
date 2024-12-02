@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(Cal3D VERSION 0.13.0)
+project(Cal3D VERSION 0.13.0 LANGUAGES CXX)
 
 # Set CMAKE_DEBUG_POSTFIX
 set(CMAKE_DEBUG_POSTFIX "d")

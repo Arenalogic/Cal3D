@@ -49,20 +49,46 @@ if(WIN32)
     )
 endif()
 
-# Installation rules
+# Define installation directories
+include(GNUInstallDirs)
+
+# Install library
 install(TARGETS cal3d
     EXPORT cal3d-targets
-    RUNTIME DESTINATION bin
-    LIBRARY DESTINATION lib
-    ARCHIVE DESTINATION lib
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}       # For executables
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}       # For shared libraries
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}       # For static libraries
 )
 
-install(FILES ${CAL3D_HEADERS}
-    DESTINATION include/cal3d
+# Install headers
+install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/src/cal3d
+    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+    FILES_MATCHING PATTERN "*.h"
 )
 
+# Install CMake config files
 install(EXPORT cal3d-targets
     FILE cal3d-targets.cmake
     NAMESPACE cal3d::
-    DESTINATION lib/cmake/cal3d
+    DESTINATION ${CMAKE_INSTALL_DATADIR}/cal3d
+)
+
+# Add a package configuration file for find_package support
+include(CMakePackageConfigHelpers)
+write_basic_package_version_file(
+    "${CMAKE_CURRENT_BINARY_DIR}/cal3d-config-version.cmake"
+    VERSION ${PROJECT_VERSION}
+    COMPATIBILITY AnyNewerVersion
+)
+
+configure_package_config_file(
+    "${PROJECT_SOURCE_DIR}/cmake/cal3d-config.cmake.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/cal3d-config.cmake"
+    INSTALL_DESTINATION ${CMAKE_INSTALL_DATADIR}/cal3d
+)
+
+install(FILES
+    "${CMAKE_CURRENT_BINARY_DIR}/cal3d-config.cmake"
+    "${CMAKE_CURRENT_BINARY_DIR}/cal3d-config-version.cmake"
+    DESTINATION ${CMAKE_INSTALL_DATADIR}/cal3d
 )
