@@ -40,7 +40,7 @@ ${CAL3D_HEADERS}
 target_include_directories(cal3d
     PUBLIC 
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
-        $<INSTALL_INTERFACE:include/cal3d>
+        $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/cal3d>
 )
 
 if(WIN32)
@@ -60,10 +60,9 @@ install(TARGETS cal3d
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}       # For static libraries
 )
 
-# Install headers
-install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/src/cal3d
-    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
-    FILES_MATCHING PATTERN "*.h"
+# Install headers using CAL3D_HEADERS
+install(FILES ${CAL3D_HEADERS}
+    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/cal3d
 )
 
 # Install CMake config files

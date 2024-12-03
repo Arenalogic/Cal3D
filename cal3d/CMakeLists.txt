@@ -4,6 +4,10 @@ project(Cal3D VERSION 0.13.0 LANGUAGES CXX)
 # Set CMAKE_DEBUG_POSTFIX
 set(CMAKE_DEBUG_POSTFIX "d")
 
+if(MSVC)
+    add_definitions(-D_CRT_SECURE_NO_WARNINGS)
+endif()
+
 # Set include directories
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
 
