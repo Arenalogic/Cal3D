@@ -255,6 +255,8 @@ namespace cal3d{
 		inline const std::list<CalAnimationAction *> getCurrentOneShotActions(){ return m_listAnimationAction; }
 		/** return array of current cycle animations mixed **/
 		inline const std::list<CalAnimationCycle *> getCurrentCycleActions(){ return m_listAnimationCycle; }
+		/** return array of animations **/
+		inline const std::vector<CalAnimation *> getAnimations(){ return m_vectorAnimation; }
 
 
 		/** add a bone constraint to the mixer **/
