@@ -1,7 +1,0 @@
-# CMake generation dependency list for this directory.
-C:/Program Files/CMake/share/cmake-3.30/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in
-C:/Program Files/CMake/share/cmake-3.30/Modules/CMakePackageConfigHelpers.cmake
-C:/Program Files/CMake/share/cmake-3.30/Modules/GNUInstallDirs.cmake
-C:/Program Files/CMake/share/cmake-3.30/Modules/WriteBasicConfigVersionFile.cmake
-D:/code/alcal3d/cal3d/cmake/cal3d-config.cmake.in
-D:/code/alcal3d/cal3d/src/CMakeLists.txt
