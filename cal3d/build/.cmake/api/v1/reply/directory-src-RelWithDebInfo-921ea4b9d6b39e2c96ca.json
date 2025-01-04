@@ -1,0 +1,165 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 56,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 64,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 69,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 89,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"src/RelWithDebInfo/cal3d.lib"
+			],
+			"targetId" : "cal3d::@145eef247bfb46b6828c",
+			"targetIndex" : 2,
+			"targetIsImportLibrary" : true,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "bin",
+			"paths" : 
+			[
+				"src/RelWithDebInfo/cal3d.dll"
+			],
+			"targetId" : "cal3d::@145eef247bfb46b6828c",
+			"targetIndex" : 2,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "include/cal3d",
+			"paths" : 
+			[
+				"src/cal3d/animation_action.h",
+				"src/cal3d/cal3d.h",
+				"src/cal3d/corekeyframe.h",
+				"src/cal3d/coreskeleton.h",
+				"src/cal3d/error.h",
+				"src/cal3d/mixer.h",
+				"src/cal3d/quaternion.h",
+				"src/cal3d/skeleton.h",
+				"src/cal3d/transform.h",
+				"src/cal3d/animation_cycle.h",
+				"src/cal3d/cal3d_wrapper.h",
+				"src/cal3d/corematerial.h",
+				"src/cal3d/coresubmesh.h",
+				"src/cal3d/global.h",
+				"src/cal3d/model.h",
+				"src/cal3d/refcounted.h",
+				"src/cal3d/springsystem.h",
+				"src/cal3d/vector.h",
+				"src/cal3d/animation.h",
+				"src/cal3d/calxmlbindings.h",
+				"src/cal3d/coremesh.h",
+				"src/cal3d/coresubmorphtarget.h",
+				"src/cal3d/hardwaremodel.h",
+				"src/cal3d/morphtargetmixer.h",
+				"src/cal3d/refptr.h",
+				"src/cal3d/streamsource.h",
+				"src/cal3d/xmlformat.h",
+				"src/cal3d/animcallback.h",
+				"src/cal3d/coreanimatedmorph.h",
+				"src/cal3d/coremodel.h",
+				"src/cal3d/coretrack.h",
+				"src/cal3d/loader.h",
+				"src/cal3d/physiquedualquaternion.h",
+				"src/cal3d/renderer.h",
+				"src/cal3d/submesh.h",
+				"src/cal3d/bone.h",
+				"src/cal3d/coreanimation.h",
+				"src/cal3d/coremorphkeyframe.h",
+				"src/cal3d/datasource.h",
+				"src/cal3d/matrix.h",
+				"src/cal3d/physique.h",
+				"src/cal3d/resource.h",
+				"src/cal3d/tinybind.h",
+				"src/cal3d/buffersource.h",
+				"src/cal3d/corebone.h",
+				"src/cal3d/coremorphtrack.h",
+				"src/cal3d/dualquaternion.h",
+				"src/cal3d/mesh.h",
+				"src/cal3d/platform.h",
+				"src/cal3d/saver.h",
+				"src/cal3d/tinyxml.h"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 3,
+			"component" : "Unspecified",
+			"destination" : "share/cal3d",
+			"exportName" : "cal3d-targets",
+			"exportTargets" : 
+			[
+				{
+					"id" : "cal3d::@145eef247bfb46b6828c",
+					"index" : 2
+				}
+			],
+			"paths" : 
+			[
+				"src/CMakeFiles/Export/d4352cb24af211f182528c7a220e9cdb/cal3d-targets.cmake"
+			],
+			"type" : "export"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "Unspecified",
+			"destination" : "share/cal3d",
+			"paths" : 
+			[
+				"build/src/cal3d-config.cmake",
+				"build/src/cal3d-config-version.cmake"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "src",
+		"source" : "src"
+	}
+}

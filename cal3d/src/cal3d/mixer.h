@@ -106,7 +106,7 @@ namespace cal3d{
 		*         \li \b false if not an instance of CalMixer
 		*
 		*****************************************************************************/
-		virtual bool isDefaultMixer() { return false; }
+		virtual bool isDefaultMixer() const { return false; }
 
 		/*****************************************************************************/
 		/**
@@ -185,15 +185,13 @@ namespace cal3d{
 
 
 
-
-
 		// Total number of bone adjustments per mixer.
 #define CalMixerBoneAdjustmentsMax ( 20 ) // Arbitrary.
 
 		CalMixer(CalModel* pModel);
 		virtual ~CalMixer();
 
-		virtual bool isDefaultMixer() { return true; }
+		virtual bool isDefaultMixer() const { return true; }
 
 		/** set the animation time of the mixer instance **/
 		void setAnimationTime(float animationTime)	{ m_animationTime = animationTime; }
@@ -256,6 +254,12 @@ namespace cal3d{
 		/** return array of current cycle animations mixed **/
 		inline const std::list<CalAnimationCycle *> getCurrentCycleActions(){ return m_listAnimationCycle; }
 		/** return array of animations **/
+  		bool addManualAnimation( int coreAnimationId );
+  bool removeManualAnimation( int coreAnimationId );
+  bool setManualAnimationOn( int coreAnimationId, bool );
+  bool setManualAnimationTime( int coreAnimationId, float seconds );
+  bool setManualAnimationWeight( int coreAnimationId, float );
+  bool setManualAnimationCompositionFunction( int coreAnimationId, CalAnimation::CompositionFunction p );
 		inline const std::vector<CalAnimation *> getAnimations(){ return m_vectorAnimation; }
 
 
@@ -265,6 +269,7 @@ namespace cal3d{
 		void removeAllBoneAdjustments();
 		/** remove a bone constraint from the mix **/
 		bool removeBoneAdjustment(int boneId);
+		CalAnimationAction * animationActionFromCoreAnimationId( int coreAnimationId );
 
 	protected:
 		unsigned int m_numBoneAdjustments;
@@ -277,6 +282,11 @@ namespace cal3d{
 		float m_animationTime;
 		float m_animationDuration;
 		float m_timeFactor;
+  		CalAnimationAction * newAnimationAction( int coreAnimationId );
+  bool setManualAnimationCompositionFunction( CalAnimationAction *, CalAnimation::CompositionFunction p );
+  bool setManualAnimationWeight( CalAnimationAction *, float p );
+  bool setManualAnimationTime( CalAnimationAction *, float p );
+  bool setManualAnimationOn( CalAnimationAction *, bool p );
 	};
 }
 #endif

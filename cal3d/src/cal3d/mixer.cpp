@@ -106,7 +106,7 @@ CalMixer::~CalMixer()
 * @return One of the following values:
 *         \li \b NULL if no action exists for given coreAnimationId.
 *         \li \b pointer to CalAnimationAction for the given coreAnimationId.
-****************************************************************************
+*****************************************************************************/
 CalAnimationAction *
 CalMixer::animationActionFromCoreAnimationId(int coreAnimationId)
 {
@@ -125,7 +125,7 @@ CalMixer::animationActionFromCoreAnimationId(int coreAnimationId)
 	}
 	return NULL;
 }
-*/
+
 
 /*****************************************************************************/
 /** Is action playing?
@@ -160,7 +160,6 @@ CalMixer::actionOn(int coreAnimationId)
 *         \li \b true if didn't already exist
 *         \li \b false if already existed or allocation failed
 *****************************************************************************/
-#if 0
 bool
 CalMixer::addManualAnimation(int coreAnimationId)
 {
@@ -225,7 +224,7 @@ CalMixer::setManualAnimationOn(CalAnimationAction * aa, bool p)
 	return aa->setManualAnimationActionOn(p);
 }
 
-
+#if 0
 /*****************************************************************************/
 /** Sets all the manual animation attributes.
 *
@@ -276,7 +275,7 @@ CalMixer::animationDuration(int coreAnimationId, float * result)
 }
 
 
-
+#endif
 
 /*****************************************************************************/
 /** Sets the time of the manual animation.
@@ -333,7 +332,7 @@ CalMixer::setManualAnimationWeight(CalAnimationAction * aa, float p)
 	return true;
 }
 
-
+#if 0
 /*****************************************************************************/
 /** Sets the scale of the manual animation to 0-1.
 *
@@ -389,7 +388,7 @@ CalMixer::setManualAnimationRampValue(CalAnimationAction * aa, float p)
 	aa->setRampValue(p);
 	return true;
 }
-
+#endif
 /*****************************************************************************/
 /** Sets the composition function, which controls how animation blends with other simultaneous animations.
 *
@@ -478,7 +477,7 @@ CalAnimation::CompositionFunction p)
 	return true;
 }
 
-#endif
+
 
 /*****************************************************************************/
 /** Stop the action.
@@ -816,7 +815,8 @@ bool CalMixer::executeAction(int id, float delayIn, float delayOut, float weight
 		return true;
 	}	
 	return false;
-}
+} 
+*/
 
 CalAnimationAction * CalMixer::newAnimationAction(int coreAnimationId)
 {
@@ -844,6 +844,8 @@ CalAnimationAction * CalMixer::newAnimationAction(int coreAnimationId)
 	return pAnimationAction;
 }
 
+
+/*
 ****************************************************************************/
 /** Updates all active animations.
   *

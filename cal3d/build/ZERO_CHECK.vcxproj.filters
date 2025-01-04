@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\code\alcal3d\cal3d\build\CMakeFiles\fdb5084019431d485e39e92461c84848\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{C9CACF7B-CF40-3E38-83B4-A97C0839550C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
